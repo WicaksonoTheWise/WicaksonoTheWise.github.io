@@ -18,18 +18,13 @@
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
-
-    <!-- Main container for the content -->
+ Main container for the content -->
     <div class="container mx-auto max-w-2xl p-4 sm:p-6 md:p-8">
-        
-        <!-- Header Section -->
         <header class="text-center mb-8">
             <img src="https://placehold.co/100x100/EBF4FF/333333?text=Profile" alt="Profile Picture" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-white shadow-lg">
             <h1 class="text-3xl font-bold text-blue-800">Hai! Aku Arfa Raddell!</h1>
             <p class="text-md text-gray-600 mt-1">Aku sangat berniat bangetzss untuk magang HMDM pleasee. Jadinya tolong ditonton video dibawah ini owh yeahz!</p>
         </header>
-
-        <!-- YouTube Video Embed Section -->
         <div class="mb-8 rounded-lg overflow-hidden shadow-2xl">
                 <!-- IMPORTANT: Replace this with your actual YouTube video embed URL -->
                 <iframe 
@@ -40,13 +35,9 @@
                     class="w-full h-80">
                 </iframe>
         </div>
-
-        <!-- Links Section -->
         <main>
             <h2 class="text-center text-xl font-semibold mb-6 text-gray-700">Professionally ini my documents saya</h2>
             <div class="space-y-4">
-                
-                <!-- Link Item 1: Curriculum Vitae -->
                 <a href="#" target="_blank" class="block bg-white p-4 rounded-lg shadow-md hover:shadow-xl hover:bg-blue-50 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
                     <div class="flex items-center">
                         <div class="flex-shrink-0">
@@ -59,8 +50,6 @@
                         </div>
                     </div>
                 </a>
-
-                <!-- Link Item 3: LinkedIn Profile -->
                 <a href="#" target="_blank" class="block bg-white p-4 rounded-lg shadow-md hover:shadow-xl hover:bg-blue-50 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
                     <div class="flex items-center">
                         <div class="flex-shrink-0">
@@ -73,15 +62,11 @@
                         </div>
                     </div>
                 </a>
-
             </div>
         </main>
-
-        <!-- Footer -->
         <footer class="text-center mt-12">
             <p class="text-gray-500 text-sm">PLEASE TERIMA GUE</p>
         </footer>
-
     </div>
 
 </body>
