@@ -42,7 +42,7 @@
             <img src="https://i.imgur.com/FWY7YJp.jpeg" alt="Profile Picture" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-white shadow-lg">
             <!-- SAYA MEMPERBAIKI: "text-grey-900" menjadi "text-gray-900" (typo) -->
             <h1 class="text-3xl font-bold text-gray-900">Hai HAI HAII. TUHKAN BENERAN KAN BUKAN VIRUS. Uhm mungkin, gak guarantee 100% sih. #KitaHarusBerhati-hatiDalamBerinternet</h1>
-            <p class="text-md text-gray-600 mt-1">Aku semangat bangetzszzzz untuk magang di HMDM. Please banget tonton video di bawah ini.</p>
+            <p class="text-md text-gray-600 mt-1">Aku semangat bangetzszzzz untuk magang di HMDM. Please banget tonton video di bawah ini. Kalau yt vidnya gak muncul bisa dicek melalui: bit.ly/BACKUPPLAN</p>
         </header>
         <div class="mb-8 rounded-lg overflow-hidden shadow-2xl">
             <!-- IMPORTANT: Replace this with your actual YouTube video embed URL -->
