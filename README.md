@@ -43,7 +43,7 @@
                         </div>
                         <div class="ml-4">
                             <p class="font-semibold text-lg">Curriculum Vitae (CV)</p>
-                            <p class="text-sm text-gray-500">Pengalaman dan riwayat organisasi saya.</p>
+                            <p class="text-sm text-gray-500">My pengalaman dan riwayat organisasi saya</p>
                         </div>
                     </div>
                 </a>
@@ -57,7 +57,7 @@
                         </div>
                         <div class="ml-4">
                             <p class="font-semibold text-lg">LinkedIn</p>
-                            <p class="text-sm text-gray-500">Ayo terhubung secara profesional!</p>
+                            <p class="text-sm text-gray-500">My LinkedIn saya mine wow (Ini englishnya sarcastic ya)</p>
                         </div>
                     </div>
                 </a>
@@ -65,7 +65,7 @@
         </main>
         <!-- Footer -->
         <footer class="text-center mt-12">
-            <p class="text-gray-500 text-sm">Dibuat dengan semangat oleh Arfa Raddell</p>
+            <p class="text-gray-500 text-sm">Dibuat dengan semangat oleh si si pasi Arfa Raddell</p>
         </footer>
     </div>
 
