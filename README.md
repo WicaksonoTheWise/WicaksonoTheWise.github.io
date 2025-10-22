@@ -46,7 +46,7 @@
         </header>
         <div class="mb-8 rounded-lg overflow-hidden shadow-2xl">
             <!-- IMPORTANT: Replace this with your actual YouTube video embed URL -->
-            <iframe src="https://youtu.be/3McNIVgZmno" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-80">
+            <iframe src="https://www.youtube.com/embed/3McNIVgZmno?si=bWd1inK6G6viJS43" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-80">
             </iframe>
         </div>
         <main>
