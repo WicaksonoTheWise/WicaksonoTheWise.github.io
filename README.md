@@ -33,7 +33,7 @@
         <main>
             <h2 class="text-center text-xl font-semibold mb-6 text-gray-700">Professionally ini dokumen aku</h2>
             <div class="space-y-4">
-                <a href="[#](https://drive.google.com/file/d/1NG9AQ9JP1Wl6gaHTCk8vIVIiHC_t7DWG/view?usp=drive_link)" target="_blank" class="block bg-white p-4 rounded-lg shadow-md hover:shadow-xl hover:bg-blue-50 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
+                <a href="https://drive.google.com/file/d/1NG9AQ9JP1Wl6gaHTCk8vIVIiHC_t7DWG/view?usp=drive_link" target="_blank" class="block bg-white p-4 rounded-lg shadow-md hover:shadow-xl hover:bg-blue-50 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
                     <div class="flex items-center">
                         <div class="flex-shrink-0">
                             <!-- Icon Placeholder -->
@@ -47,7 +47,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="[#](https://www.linkedin.com/in/arfaraddell/)" target="_blank" class="block bg-white p-4 rounded-lg shadow-md hover:shadow-xl hover:bg-blue-50 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
+                <a href="https://www.linkedin.com/in/arfaraddell/" target="_blank" class="block bg-white p-4 rounded-lg shadow-md hover:shadow-xl hover:bg-blue-50 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
                     <div class="flex items-center">
                         <div class="flex-shrink-0">
                             <!-- Icon Placeholder -->
