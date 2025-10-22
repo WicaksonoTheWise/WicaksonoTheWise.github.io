@@ -95,7 +95,7 @@
             // Ganti URL di bawah ini dengan link ke gambar .png yang kamu mau.
             // Sebaiknya gunakan gambar .png yang kecil (misal: 30x30 pixel)
             // Saya pakai placeholder bintang biru untuk contoh:
-            const rainImageUrl = 'https://imgur.com/jX7dtdP';
+            const rainImageUrl = 'https://i.imgur.com/jX7dtdP.png';
             function createRaindrop() {
                 const drop = document.createElement('img');
                 drop.src = rainImageUrl;
