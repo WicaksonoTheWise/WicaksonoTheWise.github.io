@@ -14,15 +14,34 @@
         /* Custom styles to apply the Inter font */
         body {
             font-family: 'Inter', sans-serif;
+            position: relative; /* Needed for z-index stacking */
+        }
+        .raindrop {
+            position: absolute;
+            pointer-events: none;
+            animation: fall linear;
+            z-index: -1; /* Behind the content */
+        }
+        @keyframes fall {
+            from {
+                transform: translateY(-20vh) rotate(0deg);
+            }
+            to {
+                transform: translateY(120vh) rotate(360deg);
+            }
         }
     </style>
 </head>
 
 <body class="bg-gray-100 text-gray-800">
-    <div class="container mx-auto max-w-2xl p-4 sm:p-6 md:p-8">
+    <!-- Rain container -->
+    <div id="rain-container" class="fixed inset-0 overflow-hidden pointer-events-none"></div>
+    <!-- Main content container, added relative and z-index to stay on top of rain -->
+    <div class="container mx-auto max-w-2xl p-4 sm:p-6 md:p-8 relative z-10">
         <header class="text-center mb-8">
             <img src="https://i.imgur.com/FWY7YJp.jpeg" alt="Profile Picture" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-white shadow-lg">
-            <h1 class="text-3xl font-bold text-grey-900">Hai HAI HAII. TUHKAN BENERAN KAN BUKAN VIRUS. Uhm mungkin, gak guarantee 100% sih. #KitaHarusBerhati-hatiDalamBerinternet</h1>
+            <!-- SAYA MEMPERBAIKI: "text-grey-900" menjadi "text-gray-900" (typo) -->
+            <h1 class="text-3xl font-bold text-gray-900">Hai HAI HAII. TUHKAN BENERAN KAN BUKAN VIRUS. Uhm mungkin, gak guarantee 100% sih. #KitaHarusBerhati-hatiDalamBerinternet</h1>
             <p class="text-md text-gray-600 mt-1">Aku semangat bangetzszzzz untuk magang di HMDM. Please banget tonton video di bawah ini.</p>
         </header>
         <div class="mb-8 rounded-lg overflow-hidden shadow-2xl">
@@ -33,7 +52,7 @@
         <main>
             <h2 class="text-center text-xl font-semibold mb-6 text-gray-700">Professionally ini dokumen aku</h2>
             <div class="space-y-4">
-                <a href="https://drive.google.com/file/d/1CHBKd8uWsC8jEV9Z2o7qiuiPMtnD35hW/view?usp=sharing" target="_blank" class="block bg-white p-4 rounded-lg shadow-md hover:shadow-xl hover:bg-blue-50 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
+                <a href="https://drive.google.com/file/d/1NG9AQ9JP1Wl6gaHTCk8vIVIiHC_t7DWG/view?usp=drive_link" target="_blank" class="block bg-white p-4 rounded-lg shadow-md hover:shadow-xl hover:bg-blue-50 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
                     <div class="flex items-center">
                         <div class="flex-shrink-0">
                             <!-- Icon Placeholder -->
@@ -68,6 +87,39 @@
             <p class="text-gray-500 text-sm">Dibuat dengan semangat oleh si si pasi Arfa Raddell</p>
         </footer>
     </div>
+    <!-- Script untuk animasi hujan -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const rainContainer = document.getElementById('rain-container');
+            // --- GANTI GAMBAR DI SINI ---
+            // Ganti URL di bawah ini dengan link ke gambar .png yang kamu mau.
+            // Sebaiknya gunakan gambar .png yang kecil (misal: 30x30 pixel)
+            // Saya pakai placeholder bintang biru untuk contoh:
+            const rainImageUrl = 'https://imgur.com/jX7dtdP';
+            function createRaindrop() {
+                const drop = document.createElement('img');
+                drop.src = rainImageUrl;
+                drop.className = 'raindrop';
+                // Randomize properties
+                const size = Math.random() * 20 + 10; // Ukuran: 10px - 30px
+                drop.style.width = size + 'px';
+                drop.style.height = size + 'px';
+                drop.style.left = Math.random() * 100 + 'vw'; // Posisi horizontal
+                drop.style.opacity = Math.random() * 0.5 + 0.3; // Transparansi: 0.3 - 0.8
+                const duration = Math.random() * 4 + 3; // Durasi jatuh: 3s - 7s
+                drop.style.animationDuration = duration + 's';
+                drop.style.animationDelay = Math.random() * 5 + 's'; // Mulai jatuh (delay
+                rainContainer.appendChild(drop);
+                // Hapus gambar setelah selesai jatuh
+                setTimeout(() => {
+                    drop.remove();
+                }, (duration + 5) * 1000); // Hapus setelah (durasi + max delay)
+            }
+            // Buat gambar baru setiap 200ms
+            // Ganti 200 untuk menambah/mengurangi kepadatan hujan
+            setInterval(createRaindrop, 200); 
+        });
+    </script>
 
 </body>
 </html>
