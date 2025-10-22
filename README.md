@@ -23,7 +23,7 @@
         <header class="text-center mb-8">
             <img src="https://placehold.co/100x100/EBF4FF/333333?text=AR" alt="Profile Picture" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-white shadow-lg">
             <h1 class="text-3xl font-bold text-blue-800">Hai! Aku Arfa Raddell!</h1>
-            <p class="text-md text-gray-600 mt-1">Aku semangat banget untuk magang di HMDM! Silakan tonton video perkenalanku di bawah ini.</p>
+            <p class="text-md text-gray-600 mt-1">Aku semangat bangetzszzzz untuk magang di HMDM. Please banget tonton video di bawah ini.</p>
         </header>
         <div class="mb-8 rounded-lg overflow-hidden shadow-2xl">
             <!-- IMPORTANT: Replace this with your actual YouTube video embed URL -->
@@ -31,7 +31,7 @@
             </iframe>
         </div>
         <main>
-            <h2 class="text-center text-xl font-semibold mb-6 text-gray-700">Lihat Dokumen Saya</h2>
+            <h2 class="text-center text-xl font-semibold mb-6 text-gray-700">Professionally ini dokumen aku</h2>
             <div class="space-y-4">
                 <a href="#" target="_blank" class="block bg-white p-4 rounded-lg shadow-md hover:shadow-xl hover:bg-blue-50 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
                     <div class="flex items-center">
