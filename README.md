@@ -101,14 +101,14 @@
                 drop.src = rainImageUrl;
                 drop.className = 'raindrop';
                 // Randomize properties
-                const size = Math.random() * 20 + 10; // Ukuran: 10px - 30px
+                const size = Math.random() * 40 + 40; // Ukuran: 10px - 30px
                 drop.style.width = size + 'px';
                 drop.style.height = size + 'px';
                 drop.style.left = Math.random() * 100 + 'vw'; // Posisi horizontal
                 drop.style.opacity = Math.random() * 0.5 + 0.3; // Transparansi: 0.3 - 0.8
-                const duration = Math.random() * 4 + 3; // Durasi jatuh: 3s - 7s
+                const duration = Math.random() * 3 + 3; // Durasi jatuh: 3s - 7s
                 drop.style.animationDuration = duration + 's';
-                drop.style.animationDelay = Math.random() * 5 + 's'; // Mulai jatuh (delay
+                drop.style.animationDelay = Math.random() * 2 + 's'; // Mulai jatuh (delay
                 rainContainer.appendChild(drop);
                 // Hapus gambar setelah selesai jatuh
                 setTimeout(() => {
