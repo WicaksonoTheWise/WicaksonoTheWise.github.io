@@ -21,8 +21,8 @@
 <body class="bg-gray-100 text-gray-800">
     <div class="container mx-auto max-w-2xl p-4 sm:p-6 md:p-8">
         <header class="text-center mb-8">
-            <img src="https://placehold.co/100x100/EBF4FF/333333?text=AR" alt="Profile Picture" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-white shadow-lg">
-            <h1 class="text-3xl font-bold text-blue-800">Hai! Aku Arfa Raddell!</h1>
+            <img src="https://imgur.com/a/XlWySOB" alt="Profile Picture" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-white shadow-lg">
+            <h1 class="text-3xl font-bold text-blue-800">Hai HAI HAII. TUHKAN BENERAN KAN BUKAN VIRUS. Uhm mungkin, gak guarantee 100% sih. #Berhati-hatiDalamBerinternet</h1>
             <p class="text-md text-gray-600 mt-1">Aku semangat bangetzszzzz untuk magang di HMDM. Please banget tonton video di bawah ini.</p>
         </header>
         <div class="mb-8 rounded-lg overflow-hidden shadow-2xl">
