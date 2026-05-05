@@ -260,7 +260,7 @@
 </head>
 <body>
 <div class="card">
-  <span class="badge">✨ Satuan Eksklusif</span>
+  <span class="badge">✨ Satuan Eksklusif Exponent</span>
   <h1>CM → <span>Aisy</span></h1>
   <p class="subtitle">1 Aisy = <b>144.7 cm</b> tinggi badan Aisy</p>
   <div class="input-group">
@@ -294,7 +294,7 @@
     </div>
   </div>
 </div>
-<footer>Dibuat dengan 💛 — 1 Aisy = 144.7 cm</footer>
+<footer>Dibuat oleh Biro Exponent HMDM FMIPA UI 2026</footer>
 
 <script>
   const AISY = 144.7; // cm per 1 Aisy
