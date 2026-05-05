@@ -300,10 +300,10 @@
   const AISY = 144.7; // cm per 1 Aisy
 
   function getEmoji(aisy) {
-    if (aisy < 0.5)  return '🐭';
+    if (aisy < 0.5)  return '🐭 Kurcaci';
     if (aisy < 1)    return '🐱';
-    if (aisy < 1.5)  return '🙋';   // sekitar 1 Aisy
-    if (aisy < 2)    return '🦒';
+    if (aisy < 1.5)  return '🙋 Setinggi Ezra';   // sekitar 1 Aisy
+    if (aisy < 2)    return '🦒 Ini mah Ezra';
     if (aisy < 5)    return '🏠';
     if (aisy < 10)   return '🌴';
     if (aisy < 50)   return '🗼';
