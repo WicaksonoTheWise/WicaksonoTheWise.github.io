@@ -6,18 +6,15 @@
   <title>Aisy Converter 📏</title>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
-    :root {
+    :root{
       --bg:      #FFF7ED;
       --surface: #FFFFFF;
       --primary: #FF6B35;
       --accent:  #FFD166;
       --dark:    #1A1A2E;
       --muted:   #9B8FA0;
-      --border:  #F0E4D7;
-    }
-
+      --border:  #F0E4D7;}
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
  body {
       background: var(--bg);
       font-family: 'Syne', sans-serif;
@@ -29,7 +26,6 @@
       padding: 24px;
       overflow-x: hidden;
     }
-
  /* Decorative blobs */
     body::before, body::after {
       content: '';
@@ -50,7 +46,6 @@
       background: var(--accent);
       bottom: -80px; left: -80px;
     }
-
 .card {
    position: relative;
       z-index: 1;
@@ -62,7 +57,6 @@
       width: 100%;
       box-shadow: 8px 8px 0px var(--dark);
     }
-
 /* Header */
     .badge {
       display: inline-block;
@@ -76,7 +70,6 @@
       border-radius: 100px;
       margin-bottom: 14px;
     }
-
   h1 {
       font-size: clamp(28px, 6vw, 36px);
       font-weight: 800;
@@ -85,7 +78,6 @@
       margin-bottom: 6px;
     }
     h1 span { color: var(--primary); }
-
 .subtitle {
       font-size: 13px;
       color: var(--muted);
@@ -93,7 +85,6 @@
       margin-bottom: 36px;
     }
     .subtitle b { color: var(--primary); }
-
  /* Input group */
     .input-group {
       position: relative;
@@ -145,7 +136,6 @@
       border-radius: 14px;
       white-space: nowrap;
     }
-
    /* Convert button */
   .btn {
       width: 100%;
@@ -165,7 +155,6 @@
     }
     .btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0px var(--dark); }
     .btn:active { transform: translate(2px,2px); box-shadow: 2px 2px 0px var(--dark); }
-
   /* Result box */
     .result-box {
       background: var(--dark);
@@ -220,7 +209,6 @@
       display: block;
       transition: transform 0.3s ease;
     }
-
   /* Pop animation */
     @keyframes pop {
       0%   { transform: scale(0.85); opacity: 0; }
@@ -228,7 +216,6 @@
       100% { transform: scale(1);   opacity: 1; }
     }
     .pop { animation: pop 0.4s cubic-bezier(0.34,1.56,0.64,1) forwards; }
-
 /* Fun fact strip */
     .fun-facts {
       margin-top: 20px;
@@ -246,7 +233,6 @@
       font-family: 'DM Mono', monospace;
     }
     .fact-chip b { display: block; font-size: 16px; font-family: 'Syne', sans-serif; margin-bottom: 2px; }
-
   /* Footer */
     footer {
       margin-top: 24px;
@@ -256,7 +242,6 @@
       text-align: center;
       z-index: 1;
     }
-
  /* Shake on invalid */
     @keyframes shake {
       0%,100% { transform: translateX(0); }
@@ -266,7 +251,6 @@
       80%     { transform: translateX(6px); }
     }
     .shake { animation: shake 0.4s ease; }
-
     /* Responsive */
  @media(max-width: 520px) {
       .card { padding: 32px 24px 28px; }
@@ -275,12 +259,10 @@
   </style>
 </head>
 <body>
-
 <div class="card">
   <span class="badge">✨ Satuan Eksklusif</span>
   <h1>CM → <span>Aisy</span></h1>
   <p class="subtitle">1 Aisy = <b>144.7 cm</b> tinggi badan Aisy</p>
-
   <div class="input-group">
     <label>Masukkan Panjang</label>
     <div class="input-row">
@@ -288,7 +270,6 @@
       <span class="unit-tag">cm</span>
     </div>
   </div>
-
   <button class="btn" onclick="convert()">🔁 Konversi ke Aisy!</button>
 
   <div class="result-box" id="resultBox">
@@ -313,7 +294,6 @@
     </div>
   </div>
 </div>
-
 <footer>Dibuat dengan 💛 — 1 Aisy = 144.7 cm</footer>
 
 <script>
