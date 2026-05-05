@@ -1,126 +1,388 @@
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="id">
 <head>
-    <title>PLEASE TERIMA GUE</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Tailwind CSS for styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Custom styles to apply the Inter font */
-        body {
-            font-family: 'Inter', sans-serif;
-            position: relative; /* Needed for z-index stacking */
-        }
-        .raindrop {
-            position: absolute;
-            pointer-events: none;
-            animation: fall linear;
-            z-index: -1; /* Behind the content */
-        }
-        @keyframes fall {
-            from {
-                transform: translateY(-20vh) rotate(0deg);
-            }
-            to {
-                transform: translateY(120vh) rotate(360deg);
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aisy Converter 📏</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:      #FFF7ED;
+      --surface: #FFFFFF;
+      --primary: #FF6B35;
+      --accent:  #FFD166;
+      --dark:    #1A1A2E;
+      --muted:   #9B8FA0;
+      --border:  #F0E4D7;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+ body {
+      background: var(--bg);
+      font-family: 'Syne', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      overflow-x: hidden;
+    }
+
+ /* Decorative blobs */
+    body::before, body::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.35;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::before {
+      width: 420px; height: 420px;
+      background: var(--primary);
+      top: -120px; right: -100px;
+    }
+    body::after {
+      width: 320px; height: 320px;
+      background: var(--accent);
+      bottom: -80px; left: -80px;
+    }
+
+.card {
+   position: relative;
+      z-index: 1;
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: 28px;
+      padding: 48px 44px 44px;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: 8px 8px 0px var(--dark);
+    }
+
+/* Header */
+    .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--dark);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 14px;
+    }
+
+  h1 {
+      font-size: clamp(28px, 6vw, 36px);
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+    h1 span { color: var(--primary); }
+
+.subtitle {
+      font-size: 13px;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      margin-bottom: 36px;
+    }
+    .subtitle b { color: var(--primary); }
+
+ /* Input group */
+    .input-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .input-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .input-row {
+      display: flex;
+      gap: 10px;
+      align-items: stretch;
+    }
+    input[type="number"] {
+      flex: 1;
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 18px;
+      font-size: 20px;
+      font-family: 'DM Mono', monospace;
+      font-weight: 500;
+      color: var(--dark);
+      background: var(--bg);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -moz-appearance: textfield;
+    }
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
+    input[type="number"]:focus {
+      border-color: var(--primary);
+      box-shadow: 4px 4px 0px var(--primary);
+    }
+    .unit-tag {
+      display: flex;
+      align-items: center;
+      padding: 0 18px;
+      background: var(--dark);
+      color: var(--accent);
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 14px;
+      white-space: nowrap;
+    }
+
+   /* Convert button */
+  .btn {
+      width: 100%;
+      padding: 16px;
+      background: var(--primary);
+      color: #fff;
+      border: 2px solid var(--dark);
+      border-radius: 14px;
+      font-family: 'Syne', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      box-shadow: 4px 4px 0px var(--dark);
+      transition: transform 0.12s, box-shadow 0.12s;
+      margin-bottom: 28px;
+    }
+    .btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0px var(--dark); }
+    .btn:active { transform: translate(2px,2px); box-shadow: 2px 2px 0px var(--dark); }
+
+  /* Result box */
+    .result-box {
+      background: var(--dark);
+      border-radius: 18px;
+      padding: 28px 24px;
+      text-align: center;
+      min-height: 130px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .result-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(255,255,255,0.015) 10px,
+        rgba(255,255,255,0.015) 20px
+      );
+    }
+    .result-label {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      margin-bottom: 10px;
+    }
+    .result-value {
+      font-size: clamp(32px, 8vw, 48px);
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .result-unit {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+      font-family: 'DM Mono', monospace;
+      margin-top: 8px;
+    }
+    .result-emoji {
+      font-size: 28px;
+      margin-top: 10px;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+  /* Pop animation */
+    @keyframes pop {
+      0%   { transform: scale(0.85); opacity: 0; }
+      70%  { transform: scale(1.08); }
+      100% { transform: scale(1);   opacity: 1; }
+    }
+    .pop { animation: pop 0.4s cubic-bezier(0.34,1.56,0.64,1) forwards; }
+
+/* Fun fact strip */
+    .fun-facts {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .fact-chip {
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 11px;
+      color: var(--dark);
+      font-family: 'DM Mono', monospace;
+    }
+    .fact-chip b { display: block; font-size: 16px; font-family: 'Syne', sans-serif; margin-bottom: 2px; }
+
+  /* Footer */
+    footer {
+      margin-top: 24px;
+      font-size: 11px;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      text-align: center;
+      z-index: 1;
+    }
+
+ /* Shake on invalid */
+    @keyframes shake {
+      0%,100% { transform: translateX(0); }
+      20%     { transform: translateX(-8px); }
+      40%     { transform: translateX(8px); }
+      60%     { transform: translateX(-6px); }
+      80%     { transform: translateX(6px); }
+    }
+    .shake { animation: shake 0.4s ease; }
+
+    /* Responsive */
+ @media(max-width: 520px) {
+      .card { padding: 32px 24px 28px; }
+      .fun-facts { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
+<body>
 
-<body class="bg-gray-100 text-gray-800">
-    <!-- Rain container -->
-    <div id="rain-container" class="fixed inset-0 overflow-hidden pointer-events-none"></div>
-    <!-- Main content container, added relative and z-index to stay on top of rain -->
-    <div class="container mx-auto max-w-2xl p-4 sm:p-6 md:p-8 relative z-10">
-        <header class="text-center mb-8">
-            <img src="https://i.imgur.com/FWY7YJp.jpeg" alt="Profile Picture" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-white shadow-lg">
-            <!-- SAYA MEMPERBAIKI: "text-grey-900" menjadi "text-gray-900" (typo) -->
-            <h1 class="text-3xl font-bold text-gray-900">Hai HAI HAII. TUHKAN BENERAN KAN BUKAN VIRUS. Uhm mungkin, gak guarantee 100% sih. #KitaHarusBerhati-hatiDalamBerinternet</h1>
-            <p class="text-md text-gray-600 mt-1">Aku semangat bangetzszzzz untuk magang di HMDM. Please banget tonton video di bawah ini. Kalau yt vidnya gak muncul bisa dicek melalui: bit.ly/BACKUPPLAN</p>
-        </header>
-        <div class="mb-8 rounded-lg overflow-hidden shadow-2xl">
-            <!-- IMPORTANT: Replace this with your actual YouTube video embed URL -->
-            <iframe src="https://www.youtube.com/embed/3McNIVgZmno?si=bWd1inK6G6viJS43" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-80">
-            </iframe>
-        </div>
-        <main>
-            <h2 class="text-center text-xl font-semibold mb-6 text-gray-700">Professionally ini dokumen aku</h2>
-            <div class="space-y-4">
-                <a href="https://drive.google.com/file/d/1NG9AQ9JP1Wl6gaHTCk8vIVIiHC_t7DWG/view?usp=drive_link" target="_blank" class="block bg-white p-4 rounded-lg shadow-md hover:shadow-xl hover:bg-blue-50 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
-                    <div class="flex items-center">
-                        <div class="flex-shrink-0">
-                            <!-- Icon Placeholder -->
-                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                            </svg>
-                        </div>
-                        <div class="ml-4">
-                            <p class="font-semibold text-lg">Curriculum Vitae (CV)</p>
-                            <p class="text-sm text-gray-500">My pengalaman dan riwayat organisasi saya</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://www.linkedin.com/in/arfaraddell/" target="_blank" class="block bg-white p-4 rounded-lg shadow-md hover:shadow-xl hover:bg-blue-50 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
-                    <div class="flex items-center">
-                        <div class="flex-shrink-0">
-                            <!-- Icon Placeholder -->
-                            <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
-                            </svg>
-                        </div>
-                        <div class="ml-4">
-                            <p class="font-semibold text-lg">LinkedIn</p>
-                            <p class="text-sm text-gray-500">My LinkedIn saya mine wow (Ini englishnya sarcastic ya)</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </main>
-        <!-- Footer -->
-        <footer class="text-center mt-12">
-            <p class="text-gray-500 text-sm">Dibuat dengan semangat oleh si si pasi Arfa Raddell</p>
-        </footer>
+<div class="card">
+  <span class="badge">✨ Satuan Eksklusif</span>
+  <h1>CM → <span>Aisy</span></h1>
+  <p class="subtitle">1 Aisy = <b>144.7 cm</b> tinggi badan Aisy</p>
+
+  <div class="input-group">
+    <label>Masukkan Panjang</label>
+    <div class="input-row">
+      <input type="number" id="cmInput" placeholder="misal: 170" min="0" step="any" />
+      <span class="unit-tag">cm</span>
     </div>
-    <!-- Script untuk animasi hujan -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const rainContainer = document.getElementById('rain-container');
-            // --- GANTI GAMBAR DI SINI ---
-            // Ganti URL di bawah ini dengan link ke gambar .png yang kamu mau.
-            // Sebaiknya gunakan gambar .png yang kecil (misal: 30x30 pixel)
-            // Saya pakai placeholder bintang biru untuk contoh:
-            const rainImageUrl = 'https://i.imgur.com/jX7dtdP.png';
-            function createRaindrop() {
-                const drop = document.createElement('img');
-                drop.src = rainImageUrl;
-                drop.className = 'raindrop';
-                // Randomize properties
-                const size = Math.random() * 40 + 40; // Ukuran: 10px - 30px
-                drop.style.width = size + 'px';
-                drop.style.height = size + 'px';
-                drop.style.left = Math.random() * 100 + 'vw'; // Posisi horizontal
-                drop.style.opacity = Math.random() * 0.5 + 0.3; // Transparansi: 0.3 - 0.8
-                const duration = Math.random() * 3 + 3; // Durasi jatuh: 3s - 7s
-                drop.style.animationDuration = duration + 's';
-                drop.style.animationDelay = Math.random() * 2 + 's'; // Mulai jatuh (delay
-                rainContainer.appendChild(drop);
-                // Hapus gambar setelah selesai jatuh
-                setTimeout(() => {
-                    drop.remove();
-                }, (duration + 5) * 1000); // Hapus setelah (durasi + max delay)
-            }
-            // Buat gambar baru setiap 200ms
-            // Ganti 200 untuk menambah/mengurangi kepadatan hujan
-            setInterval(createRaindrop, 200); 
-        });
-    </script>
+  </div>
 
+  <button class="btn" onclick="convert()">🔁 Konversi ke Aisy!</button>
+
+  <div class="result-box" id="resultBox">
+    <p class="result-label">Hasil Konversi</p>
+    <div class="result-value" id="resultValue">—</div>
+    <div class="result-unit" id="resultUnit">masukkan nilai dulu ya 👆</div>
+    <span class="result-emoji" id="resultEmoji">📏</span>
+  </div>
+
+  <div class="fun-facts" id="funFacts" style="display:none">
+    <div class="fact-chip">
+      <b id="factAisy">—</b> Aisy
+    </div>
+    <div class="fact-chip">
+      <b id="factCm">—</b> cm input
+    </div>
+    <div class="fact-chip">
+      <b id="factMeter">—</b> meter
+    </div>
+    <div class="fact-chip">
+      <b id="factSisa">—</b> cm sisa
+    </div>
+  </div>
+</div>
+
+<footer>Dibuat dengan 💛 — 1 Aisy = 144.7 cm</footer>
+
+<script>
+  const AISY = 144.7; // cm per 1 Aisy
+
+  function getEmoji(aisy) {
+    if (aisy < 0.5)  return '🐭';
+    if (aisy < 1)    return '🐱';
+    if (aisy < 1.5)  return '🙋';   // sekitar 1 Aisy
+    if (aisy < 2)    return '🦒';
+    if (aisy < 5)    return '🏠';
+    if (aisy < 10)   return '🌴';
+    if (aisy < 50)   return '🗼';
+    if (aisy < 300)  return '🏔️';
+    return '🌍';
+  }
+
+  function convert() {
+    const inp = document.getElementById('cmInput');
+    const val = parseFloat(inp.value);
+
+    if (isNaN(val) || val < 0) {
+      inp.classList.remove('shake');
+      void inp.offsetWidth; // reflow
+      inp.classList.add('shake');
+      document.getElementById('resultValue').textContent = '❌';
+      document.getElementById('resultUnit').textContent = 'Input tidak valid!';
+      document.getElementById('resultEmoji').textContent = '😅';
+      document.getElementById('funFacts').style.display = 'none';
+      return;
+    }
+
+    const aisy = val / AISY;
+
+    // Format: kalau bilangan besar tampilkan 2 desimal, kecil 4 desimal
+    const aisyStr = aisy < 0.01
+      ? aisy.toFixed(6)
+      : aisy < 1
+      ? aisy.toFixed(4)
+      : aisy.toFixed(3);
+
+    const resultVal  = document.getElementById('resultValue');
+    const resultUnit = document.getElementById('resultUnit');
+    const resultEmoji= document.getElementById('resultEmoji');
+
+    resultVal.textContent  = aisyStr;
+    resultUnit.textContent = 'Aisy';
+    resultEmoji.textContent = getEmoji(aisy);
+
+    // Pop animation
+    resultVal.classList.remove('pop');
+    void resultVal.offsetWidth;
+    resultVal.classList.add('pop');
+
+    // Fun facts
+    const bulat = Math.floor(aisy);
+    const sisa  = (val - bulat * AISY).toFixed(1);
+    document.getElementById('factAisy').textContent  = aisyStr;
+    document.getElementById('factCm').textContent    = val.toLocaleString('id-ID');
+    document.getElementById('factMeter').textContent = (val / 100).toFixed(2);
+    document.getElementById('factSisa').textContent  = sisa >= 0 ? sisa : 0;
+
+    document.getElementById('funFacts').style.display = 'grid';
+  }
+
+  // Enter key support
+  document.getElementById('cmInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') convert();
+  });
+</script>
 </body>
 </html>
-
