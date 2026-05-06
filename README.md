@@ -338,7 +338,7 @@
   }
 
   function getLabel(aisy) {
-    if (aisy < 0.05)                      return 'Kurcaci gila';
+    if (aisy < 0.95)                      return 'Kurcaci gila';
     if (aisy >= 0.95 && aisy <= 1.05)     return 'Ini mah aisy';
     if (aisy > 1.05 && aisy <= 1.1)       return 'tertantang secara vertikal';
     if (aisy > 1.1  && aisy <= 1.2)       return 'Normal';
