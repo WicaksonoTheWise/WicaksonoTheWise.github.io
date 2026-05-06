@@ -343,7 +343,8 @@
     if (aisy > 1.05 && aisy <= 1.1)       return 'tertantang secara vertikal';
     if (aisy > 1.1  && aisy <= 1.2)       return 'Normal';
     if (aisy > 1.2  && aisy <= 1.24)      return 'Cukup tinggi';
-    if (aisy > 1.24)                      return 'Inimah Ezra';
+    if (aisy > 1.24 && aisy <= 1,5)       return 'Inimah Ezra';
+    if (aisy > 1.5)                       return 'Inimah boong gila';
     return null; // tidak ada label untuk range lainnya
   }
 
