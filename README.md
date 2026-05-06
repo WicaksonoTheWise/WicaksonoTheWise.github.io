@@ -6,16 +6,17 @@
   <title>Aisy Converter 📏</title>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
-    :root{
+    :root {
       --bg:      #FFF7ED;
       --surface: #FFFFFF;
       --primary: #FF6B35;
       --accent:  #FFD166;
       --dark:    #1A1A2E;
       --muted:   #9B8FA0;
-      --border:  #F0E4D7;}
+      --border:  #F0E4D7;
+    }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
- body {
+    body {
       background: var(--bg);
       font-family: 'Syne', sans-serif;
       min-height: 100vh;
@@ -26,7 +27,7 @@
       padding: 24px;
       overflow-x: hidden;
     }
- /* Decorative blobs */
+    /* Decorative blobs */
     body::before, body::after {
       content: '';
       position: fixed;
@@ -46,8 +47,8 @@
       background: var(--accent);
       bottom: -80px; left: -80px;
     }
-.card {
-   position: relative;
+    .card {
+      position: relative;
       z-index: 1;
       background: var(--surface);
       border: 2px solid var(--border);
@@ -57,7 +58,7 @@
       width: 100%;
       box-shadow: 8px 8px 0px var(--dark);
     }
-/* Header */
+    /* Header */
     .badge {
       display: inline-block;
       background: var(--accent);
@@ -70,7 +71,7 @@
       border-radius: 100px;
       margin-bottom: 14px;
     }
-  h1 {
+    h1 {
       font-size: clamp(28px, 6vw, 36px);
       font-weight: 800;
       color: var(--dark);
@@ -78,14 +79,14 @@
       margin-bottom: 6px;
     }
     h1 span { color: var(--primary); }
-.subtitle {
+    .subtitle {
       font-size: 13px;
       color: var(--muted);
       font-family: 'DM Mono', monospace;
       margin-bottom: 36px;
     }
     .subtitle b { color: var(--primary); }
- /* Input group */
+    /* Input group */
     .input-group {
       position: relative;
       margin-bottom: 20px;
@@ -136,8 +137,8 @@
       border-radius: 14px;
       white-space: nowrap;
     }
-   /* Convert button */
-  .btn {
+    /* Convert button */
+    .btn {
       width: 100%;
       padding: 16px;
       background: var(--primary);
@@ -155,7 +156,7 @@
     }
     .btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0px var(--dark); }
     .btn:active { transform: translate(2px,2px); box-shadow: 2px 2px 0px var(--dark); }
-  /* Result box */
+    /* Result box */
     .result-box {
       background: var(--dark);
       border-radius: 18px;
@@ -209,14 +210,14 @@
       display: block;
       transition: transform 0.3s ease;
     }
-  /* Pop animation */
+    /* Pop animation */
     @keyframes pop {
       0%   { transform: scale(0.85); opacity: 0; }
       70%  { transform: scale(1.08); }
       100% { transform: scale(1);   opacity: 1; }
     }
     .pop { animation: pop 0.4s cubic-bezier(0.34,1.56,0.64,1) forwards; }
-/* Fun fact strip */
+    /* Fun fact strip */
     .fun-facts {
       margin-top: 20px;
       display: grid;
@@ -233,7 +234,7 @@
       font-family: 'DM Mono', monospace;
     }
     .fact-chip b { display: block; font-size: 16px; font-family: 'Syne', sans-serif; margin-bottom: 2px; }
-  /* Footer */
+    /* Footer */
     footer {
       margin-top: 24px;
       font-size: 11px;
@@ -242,7 +243,7 @@
       text-align: center;
       z-index: 1;
     }
- /* Shake on invalid */
+    /* Shake on invalid */
     @keyframes shake {
       0%,100% { transform: translateX(0); }
       20%     { transform: translateX(-8px); }
@@ -252,31 +253,55 @@
     }
     .shake { animation: shake 0.4s ease; }
     /* Responsive */
- @media(max-width: 520px) {
+    @media(max-width: 520px) {
       .card { padding: 32px 24px 28px; }
       .fun-facts { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
+
 <div class="card">
-  <span class="badge">✨ Satuan Eksklusif Exponent</span>
-  <h1>CM → <span>Aisy</span></h1>
+  <span class="badge">✨ Satuan Eksklusif</span>
+  <h1 id="cardTitle">CM → <span>Aisy</span></h1>
   <p class="subtitle">1 Aisy = <b>144.7 cm</b> tinggi badan Aisy</p>
+
+  <div style="display:flex;justify-content:flex-end;margin-bottom:12px;">
+    <button onclick="toggleMode()" id="modeBtn" style="
+      background:transparent;
+      border:2px solid var(--border);
+      border-radius:100px;
+      padding:6px 16px;
+      font-family:'Syne',sans-serif;
+      font-size:12px;
+      font-weight:700;
+      color:var(--muted);
+      cursor:pointer;
+      transition:all 0.2s;
+    " onmouseover="this.style.borderColor='var(--primary)';this.style.color='var(--primary)'"
+       onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">
+      ⇄ Balik ke Aisy → CM
+    </button>
+  </div>
+
   <div class="input-group">
-    <label>Masukkan Panjang</label>
+    <label id="inputLabel">Masukkan Panjang</label>
     <div class="input-row">
       <input type="number" id="cmInput" placeholder="misal: 170" min="0" step="any" />
-      <span class="unit-tag">cm</span>
+      <span class="unit-tag" id="unitTag">cm</span>
     </div>
   </div>
-  <button class="btn" onclick="convert()">🔁 Konversi ke Aisy!</button>
+
+  <button class="btn" id="convertBtn" onclick="convert()">🔁 Konversi ke Aisy!</button>
 
   <div class="result-box" id="resultBox">
     <p class="result-label">Hasil Konversi</p>
     <div class="result-value" id="resultValue">—</div>
     <div class="result-unit" id="resultUnit">masukkan nilai dulu ya 👆</div>
-    <span class="result-emoji" id="resultEmoji">📏</span>
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-top:10px;">
+      <span class="result-emoji" id="resultEmoji" style="margin-top:0;">📏</span>
+      <span id="resultTag" style="display:none;font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--dark);background:var(--accent);padding:4px 12px;border-radius:100px;white-space:nowrap;"></span>
+    </div>
   </div>
 
   <div class="fun-facts" id="funFacts" style="display:none">
@@ -294,16 +319,17 @@
     </div>
   </div>
 </div>
+
 <footer>Dibuat oleh Biro Exponent HMDM FMIPA UI 2026</footer>
 
 <script>
   const AISY = 144.7; // cm per 1 Aisy
 
   function getEmoji(aisy) {
-    if (aisy < 0.5)  return '🐭 Kurcaci';
+    if (aisy < 0.5)  return '🐭';
     if (aisy < 1)    return '🐱';
-    if (aisy < 1.5)  return '🙋 Setinggi Ezra';   // sekitar 1 Aisy
-    if (aisy < 2)    return '🦒 Ini mah Ezra';
+    if (aisy < 1.5)  return '🙋';   // sekitar 1 Aisy
+    if (aisy < 2)    return '🦒';
     if (aisy < 5)    return '🏠';
     if (aisy < 10)   return '🌴';
     if (aisy < 50)   return '🗼';
@@ -311,9 +337,20 @@
     return '🌍';
   }
 
+  function getLabel(aisy) {
+    if (aisy < 0.05)                      return 'Kurcaci gila';
+    if (aisy >= 0.95 && aisy <= 1.05)     return 'Ini mah aisy';
+    if (aisy > 1.05 && aisy <= 1.1)       return 'tertantang secara vertikal';
+    if (aisy > 1.1  && aisy <= 1.2)       return 'Normal';
+    if (aisy > 1.2  && aisy <= 1.24)      return 'Cukup tinggi';
+    if (aisy > 1.24)                      return 'Inimah Ezra';
+    return null; // tidak ada label untuk range lainnya
+  }
+
   function convert() {
     const inp = document.getElementById('cmInput');
     const val = parseFloat(inp.value);
+    const isCm2Aisy = mode === 'cm2aisy';
 
     if (isNaN(val) || val < 0) {
       inp.classList.remove('shake');
@@ -326,22 +363,38 @@
       return;
     }
 
-    const aisy = val / AISY;
+    // Hitung nilai sesuai mode
+    const aisy = isCm2Aisy ? val / AISY : val;
+    const cm   = isCm2Aisy ? val        : val * AISY;
 
-    // Format: kalau bilangan besar tampilkan 2 desimal, kecil 4 desimal
     const aisyStr = aisy < 0.01
       ? aisy.toFixed(6)
       : aisy < 1
       ? aisy.toFixed(4)
       : aisy.toFixed(3);
 
+    const cmStr = cm.toFixed(2);
+
     const resultVal  = document.getElementById('resultValue');
     const resultUnit = document.getElementById('resultUnit');
     const resultEmoji= document.getElementById('resultEmoji');
 
-    resultVal.textContent  = aisyStr;
-    resultUnit.textContent = 'Aisy';
+    resultVal.textContent  = isCm2Aisy ? aisyStr : cmStr;
+    resultUnit.textContent = isCm2Aisy ? 'Aisy'  : 'cm';
     resultEmoji.textContent = getEmoji(aisy);
+
+    // Tampilkan label kontekstual di samping emoji
+    const tag = document.getElementById('resultTag');
+    const label = getLabel(aisy);
+    if (label) {
+      tag.textContent = label;
+      tag.style.display = 'inline-block';
+      tag.style.animation = 'none';
+      void tag.offsetWidth;
+      tag.style.animation = 'pop 0.4s cubic-bezier(0.34,1.56,0.64,1) forwards';
+    } else {
+      tag.style.display = 'none';
+    }
 
     // Pop animation
     resultVal.classList.remove('pop');
@@ -350,13 +403,36 @@
 
     // Fun facts
     const bulat = Math.floor(aisy);
-    const sisa  = (val - bulat * AISY).toFixed(1);
+    const sisa  = (cm - bulat * AISY).toFixed(1);
     document.getElementById('factAisy').textContent  = aisyStr;
-    document.getElementById('factCm').textContent    = val.toLocaleString('id-ID');
-    document.getElementById('factMeter').textContent = (val / 100).toFixed(2);
-    document.getElementById('factSisa').textContent  = sisa >= 0 ? sisa : 0;
+    document.getElementById('factCm').textContent    = cm.toFixed(2);
+    document.getElementById('factMeter').textContent = (cm / 100).toFixed(2);
+    document.getElementById('factSisa').textContent  = parseFloat(sisa) >= 0 ? sisa : 0;
 
     document.getElementById('funFacts').style.display = 'grid';
+  }
+
+  // Mode: 'cm2aisy' atau 'aisy2cm'
+  let mode = 'cm2aisy';
+
+  function toggleMode() {
+    mode = (mode === 'cm2aisy') ? 'aisy2cm' : 'cm2aisy';
+    const isCm2Aisy = mode === 'cm2aisy';
+
+    document.getElementById('cardTitle').innerHTML  = isCm2Aisy ? 'CM → <span>Aisy</span>' : '<span>Aisy</span> → CM';
+    document.getElementById('unitTag').textContent  = isCm2Aisy ? 'cm' : 'Aisy';
+    document.getElementById('inputLabel').textContent = isCm2Aisy ? 'Masukkan Panjang' : 'Masukkan nilai Aisy';
+    document.getElementById('convertBtn').textContent = isCm2Aisy ? '🔁 Konversi ke Aisy!' : '🔁 Konversi ke CM!';
+    document.getElementById('modeBtn').textContent  = isCm2Aisy ? '⇄ Balik ke Aisy → CM' : '⇄ Balik ke CM → Aisy';
+    document.getElementById('cmInput').placeholder  = isCm2Aisy ? 'misal: 170' : 'misal: 1.17';
+    document.getElementById('cmInput').value = '';
+
+    // Reset hasil
+    document.getElementById('resultValue').textContent = '—';
+    document.getElementById('resultUnit').textContent  = isCm2Aisy ? 'masukkan nilai dulu ya 👆' : 'masukkan nilai dulu ya 👆';
+    document.getElementById('resultEmoji').textContent = '📏';
+    document.getElementById('resultTag').style.display = 'none';
+    document.getElementById('funFacts').style.display  = 'none';
   }
 
   // Enter key support
@@ -364,5 +440,135 @@
     if (e.key === 'Enter') convert();
   });
 </script>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SEKSI: Mengapa Satuan Aisy Itu Penting — versi static info
+     ═══════════════════════════════════════════════════════════════ -->
+<style>
+  .latar-card {
+    position: relative;
+    z-index: 1;
+    background: var(--dark);
+    border: 2px solid rgba(255,255,255,0.08);
+    border-radius: 28px;
+    padding: 40px 44px;
+    max-width: 480px;
+    width: 100%;
+    margin-top: 20px;
+    box-shadow: 8px 8px 0px var(--primary);
+  }
+
+  .latar-title {
+    font-size: clamp(18px, 5vw, 24px);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+  .latar-title span { color: var(--accent); }
+
+  .latar-divider {
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), transparent);
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+
+  .latar-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .latar-block {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .latar-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    line-height: 1;
+  }
+
+  .latar-text h3 {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+
+  .latar-text p {
+    font-size: 13px;
+    font-family: 'DM Mono', monospace;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.75;
+  }
+
+  .latar-text p b {
+    color: #fff;
+    font-family: 'Syne', sans-serif;
+  }
+
+  .latar-quote {
+    margin-top: 8px;
+    padding: 16px 20px;
+    background: rgba(255,209,102,0.08);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 12px 12px 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    font-style: italic;
+    color: var(--accent);
+    line-height: 1.7;
+  }
+
+  @media(max-width: 520px) {
+    .latar-card { padding: 28px 22px; }
+  }
+</style>
+
+<div class="latar-card">
+  <h2 class="latar-title">Mengapa Satuan <span>Aisy</span> Itu Penting?</h2>
+  <div class="latar-divider"></div>
+
+  <div class="latar-body">
+    <div class="latar-block">
+      <div class="latar-icon">📐</div>
+      <div class="latar-text">
+        <h3>LATAR BELAKANG</h3>
+        <p>Pada suatu hari yang biasa, muncul pertanyaan besar: <b>"seberapa panjang itu sebenarnya?"</b> Meter terasa terlalu abstrak untuk keseharian di Matek. Kaki dan inci terlalu kolonial. Maka lahirlah satuan BARU BANGET <b>Aisy</b> yang berdasarkan tinggi badan Aisy yang tepatnya <b>144,7 cm</b> cocok sebagai sebuah referensi nyata, manusiawi, dan bisa dibayangin langsung (lihat aja orangnya).</p>
+      </div>
+    </div>
+    <div class="latar-block">
+      <div class="latar-icon">🧠</div>
+      <div class="latar-text">
+        <h3>Lebih Masuk Akal aja</h3>
+        <p>Kalau ada yang bilang pohon itu <b>"3 meter"</b>, kamu harus mikir dulu. Tapi kalau ada yang bilang pohon itu <b>"2 Aisy"</b>, kamu langsung bisa bayangin: itu dua kali tingginya Aisy, terus mikir "cukup tinggi, tapi masih bisa diajak foto bareng."</p>
+      </div>
+    </div>
+    <div class="latar-block">
+      <div class="latar-icon">🌍</div>
+      <div class="latar-text">
+        <h3>Satuan yang dibuat dari Iblis MATEK</h3>
+        <p>Berbeda dari meter yang diciptakan berdasarkan keliling bumi (siapa yang relate?), satuan Aisy diciptakan berdasarkan seseorang yang <b>nyata, dikenal, dan bisa dijumpai langsung</b>.</p>
+      </div>
+    </div>
+    <div class="latar-block">
+      <div class="latar-icon">📊</div>
+      <div class="latar-text">
+        <h3>Skala yang Lebih Relevan</h3>
+        <p>Sebagian besar benda di kehidupan sehari-hari berada di rentang <b>0,01 hingga 10 Aisy</b> — dari pulpen sampai gedung bertingkat. Satuan ini ternyata pas banget untuk mendeskripsikan dunia di sekitar kita tanpa harus pakai notasi ilmiah. Meter overrated bro.</p>
+      </div>
+    </div>
+    <div class="latar-quote">
+      Ayo normalisasi penggunaan Aisy sekarang juga.
+    </div>
+  </div>
+</div>
 </body>
 </html>
