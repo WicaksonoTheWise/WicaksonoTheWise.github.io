@@ -262,7 +262,7 @@
 <body>
 
 <div class="card">
-  <span class="badge">✨ Satuan Eksklusif</span>
+  <span class="badge">✨ Satuan Eksklusif Exponent</span>
   <h1 id="cardTitle">CM → <span>Aisy</span></h1>
   <p class="subtitle">1 Aisy = <b>144.7 cm</b> tinggi badan Aisy</p>
 
